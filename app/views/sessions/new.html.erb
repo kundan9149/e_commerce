@@ -1,0 +1,46 @@
+<h1 id= "community" class="display-1  m-5 tr text-center"> Login to Furnico </h1>
+
+<%= form_with(scope: :session, url: login_show_login_path, method: "post",local: true) do |f| %>
+  <div class="container-fluid justify-content-center">
+    <div class="card card0 border-2 mx-auto mt-10">
+      <div class="row d-flex ">
+        <div class="col-lg-6">
+          <div class="card1 bg-light pb-5">
+            <div class="row px-3 justify-content-center mt-4 mb-5"> <img src="https://i.imgur.com/ucirQQf.png" class="image"> </div>
+            <div class="row px-3 text-center justify-content-center">
+              <h4>Shop Now at Furnico.</h4>
+              <small class="text-muted px-5 mx-1 mx-lg-5">Your Personal Furniture Destination.</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card2 card border-0 px-4 py-5">
+            <h3 class="mb-1">Welcome to Furnico.</h3>
+            <p class="mb-4 text-sm">Don't have an account? <%= link_to "Signup", login_show_signup_path,class:"text-primary login"%></p>
+            <div class="row px-3">
+              <div class="line"></div>
+              <div class="line"></div>
+            </div>
+            <div class="row mt-5 px-3">
+              <label class="mb-0">
+                <h6 class="mb-0 text-sm">Email Address</h6>
+              </label>
+              <%= f.email_field :email %>
+            </div>
+            <div class="row px-3">
+              <label class="mb-0">
+                <h6 class="mb-0 text-sm">Password</h6>
+              </label>
+              <%= f.password_field :password %>
+            </div>
+            <div class="row mb-4 justify-content-center">
+              <div class="col-md-5"> 
+                <%= f.submit "Login", class:"btn btn-blue text-center mb-1" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

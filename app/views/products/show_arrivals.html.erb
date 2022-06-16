@@ -1,0 +1,30 @@
+<h1 class="display-1 color: black text-center mt-5" > New Arrivals Furniture </h1>
+
+<div class="flickr_pagination">
+  
+  <%= will_paginate @arrivals, :container=> false %>
+
+</div>
+<% @arrivals.each do |arrival|%>
+  <div class="card mt-5 mb-5">
+    <%= image_tag(arrival.ImageName, :class => "mx-auto img-circle mt-3 mb-3 ")%>
+    <div class="card-body">
+      <h5 class="card-title"><%= arrival.ProductName %></h5>
+      <p class="card-text"><%= arrival.ProductDescription%></p>
+      <p class="card-text">₹- <%= arrival.ProductPrice%></p>
+    </div>
+    <div class="text-white text-center mb-5">
+      <%= form_with(url:products_show_arrivals_path , method: "post",local: true) do |f| %>
+        <%= f.button "Add to Cart" ,class: "btn btn-success w-25", name:"product_id",value: arrival.id %>
+      <%end%>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated <%= time_ago_in_words(arrival.updated_at)%> ago.</small>
+    </div>
+  </div>
+<% end %>
+
+
+<div class="text-white text-center">
+  <%= link_to "Feature Furnitures", products_show_features_path, class: "btn btn-primary btn-lg"%>
+</div>

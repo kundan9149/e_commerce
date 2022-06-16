@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Furnico</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id= "nav"><%= render "layouts/navbar"%></div>
+    <div class="container">
+      <div id= "main">
+      <% flash.each do |name, message|%>
+        <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <h4 class="display-4  m-5 tr text-center"><%=message%></h2>
+        </div>
+      <%end%>
+      <%= yield %>
+      </div>
+      <div id="footer"> <%= render "layouts/footer"%> </div> 
+    </div>
+  </body>
+</html>
